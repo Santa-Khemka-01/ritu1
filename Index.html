@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My World</title>
+    <style>
+        body {
+            background-color: darkblue;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+        }
+        .login-link {
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+        }
+        .error-message {
+            color: white;
+            font-size: 24px;
+        }
+        .success-message {
+            color: yellow;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Good Morning Sunaina Khemka</h1>
+    <p>Welcome again to my world!</p>
+
+    <!-- Login Section -->
+    <p><a href="#" class="login-link" onclick="showLogin()">Click here to login</a></p>
+
+    <!-- Login Form (Initially Hidden) -->
+    <div id="loginForm" style="display: none;">
+        <form onsubmit="return validateLogin()">
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id" required><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+
+            <button type="submit">Login</button>
+        </form>
+        <p id="errorMessage" class="error-message"></p>
+    </div>
+
+    <!-- Success Message (Initially Hidden) -->
+    <div id="successMessage" style="display: none;">
+        <p class="success-message">🎉 Now please meet Ankita Singh, she will guide you on what to do next!!!. 😁</p>
+    </div>
+
+    <script>
+        function showLogin() {
+            document.getElementById("loginForm").style.display = "block";
+        }
+
+        function validateLogin() {
+            var enteredId = document.getElementById("id").value;
+            var enteredPassword = document.getElementById("password").value;
+
+            // Check if ID and Password are correct
+            if (enteredId.toUpperCase() === "SID2023" && enteredPassword === "SID2023") {
+                document.getElementById("loginForm").style.display = "none";
+                document.getElementById("successMessage").style.display = "block";
+                return false; // To prevent form submission
+            } else {
+                document.getElementById("errorMessage").innerHTML = "प्रवेश निषेध - Get your ID and PW from Ritu Agrawal"; // Display error message
+                return false; // To prevent form submission
+            }
+        }
+    </script>
+</body>
+</html>
